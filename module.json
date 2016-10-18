@@ -1,0 +1,17 @@
+{
+  "name": "micro-bit",
+  "version": "0.0.0",
+  "description": "edge-node-manager compatible firmware for the micro:bit",
+  "author": "Joseph Roberts <joe@resin.io>",
+  "homepage": "https://github.com/resin-io-projects/micro-bit",
+  "repository": {
+    "url": "git@github.com:resin-io-projects/micro-bit.git",
+    "type": "git"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+     "microbit": "lancaster-university/microbit"
+  },
+  "targetDependencies": {},
+  "bin": "./source"
+}

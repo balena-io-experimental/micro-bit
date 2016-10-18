@@ -27,3 +27,8 @@
 *.exe
 *.out
 *.app
+
+build
+yotta_targets
+yotta_modules
+test
