@@ -19,6 +19,18 @@ RUN apt-get update && apt-get install -yq \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+# Install pip2
+RUN wget https://bootstrap.pypa.io/get-pip.py && \
+    python2 get-pip.py
+
+# Install nrfutil
+RUN cd /opt && \
+    git clone https://github.com/NordicSemiconductor/pc-nrfutil.git && \
+    cd pc-nrfutil && \
+    git checkout 0_5_2 && \
+    pip2 install -r requirements.txt && \
+    python2 setup.py install
+
 # Install yotta
 RUN pip install yotta
 
@@ -37,11 +49,14 @@ RUN yt target bbc-microbit-classic-gcc
 # Compile the firmware
 RUN yt build
 
-# # Move the firmware to /assets/
-RUN mv build/bbc-microbit-classic-gcc/source/micro-bit-combined.hex /assets/
+# Generate package
+RUN nrfutil dfu genpkg --application build/bbc-microbit-classic-gcc/source/micro-bit.bin application.zip
 
-# Below we try to reduce the image size as much as possible to speed up the
-# development cycle
+# Move the firmware to /assets/
+RUN mv application.zip /assets/
+
+# # Below we try to reduce the image size as much as possible to speed up the
+# # development cycle
 
 # Remove packages
 RUN apt-get purge --auto-remove -yq \
@@ -53,7 +68,10 @@ RUN apt-get purge --auto-remove -yq \
     ninja-build \
     python-dev \
     python-setuptools \
-    srecord 
+    srecord
+
+# Remove pc-nrfutil
+RUN cd /opt && rm -rf pc-nrfutil
 
 # Remove yotta
 RUN pip uninstall -yq yotta 

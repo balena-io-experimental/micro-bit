@@ -14,6 +14,6 @@ int main()
     }
 
      while (true) {
-        display.scroll("*!*RESIN.IO*!*");
+        display.scroll("*!*RESIN.IO HAS UPDATED*!*");
     }
 }

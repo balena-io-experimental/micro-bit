@@ -29,6 +29,8 @@
 *.app
 
 build
-yotta_targets
-yotta_modules
 test
+
+# Extras
+.vscode
+*.zip
