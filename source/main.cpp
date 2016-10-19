@@ -1,14 +1,19 @@
 #include "MicroBit.h"
 
-MicroBit uBit;
+MicroBitMessageBus bus;
+MicroBitDisplay display;
+MicroBitStorage storage;
+MicroBitBLEManager bleManager = MicroBitBLEManager(storage);
+BLEDevice *ble;
 
 int main()
 {
-    uBit.init();
-
-    while (true) {
-        uBit.display.scroll("***RESIN.IO***");
+    if (!ble) {
+        bleManager.init("14323", "", bus, false);
+        ble = bleManager.ble;
     }
 
-    release_fiber();
+     while (true) {
+        display.scroll("*!*RESIN.IO*!*");
+    }
 }
