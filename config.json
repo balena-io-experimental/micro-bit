@@ -14,7 +14,7 @@
         },
         "reuse_sd": 1,
         "default_pullmode":"PullDown",
-        "gatt_table_size": "0x300",
+        "gatt_table_size": "0x700",
         "heap_allocator": 1,
         "nested_heap_proportion": 0.75,
         "system_tick_period": 6,
