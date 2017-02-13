@@ -1,5 +1,7 @@
 #include "MicroBit.h"
 
+#define APP_ID 1234567890
+
 InterruptIn resetButton(MICROBIT_PIN_BUTTON_RESET);
 MicroBitStorage storage;
 MicroBitI2C i2c(I2C_SDA0, I2C_SCL0);
@@ -102,7 +104,7 @@ int main()
     // Start the BLE stack, if it isn't already running.
     if (!ble)
     {
-        bleManager.init("16025", "", messageBus, false);
+        bleManager.init(APP_ID, "", messageBus, false);
         ble = bleManager.ble;
     }
 
