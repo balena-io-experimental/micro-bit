@@ -10,8 +10,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-     "microbit": "lancaster-university/microbit"
+    "microbit": "lancaster-university/microbit"
   },
-  "targetDependencies": {},
   "bin": "./source"
 }

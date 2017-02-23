@@ -1,6 +1,6 @@
 # micro-bit base image
 # See more about resin base images here: http://docs.resin.io/runtime/resin-base-images/
-FROM joe4465/micro-bit
+FROM resin/microbit
 
 # Set the working directory
 WORKDIR /usr/src/app

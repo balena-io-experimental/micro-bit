@@ -27,13 +27,3 @@
 *.exe
 *.out
 *.app
-
-build
-test
-yotta_targets/
-yotta_modules/
-
-# Extras
-.vscode
-*.zip
-
