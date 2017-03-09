@@ -28,3 +28,12 @@
 *.out
 *.app
 micro-bit-combined.hex
+
+# pyenv
+.python-version
+
+# yotta
+.yotta.json
+build/
+yotta_modules/
+yotta_targets/
